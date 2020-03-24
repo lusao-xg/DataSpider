@@ -44,7 +44,7 @@ class Job51Spider(scrapy.Spider):
             response.css('.msg::attr(title)').re('(\d-\d年经验|\d年经验)'))
         # 学历
         item['education'] = '无要求' if not response.css('.msg::attr(title)').re('(本科|[硕博]士|大专|在校生/应届生)') else ''.join(
-            response.css('.msg::attr(title)').re('(本科|[硕博]士|大专)'))
+            response.css('.msg::attr(title)').re('(本科|[硕博]士|大专|在校生/应届生)'))
         # 公司地址
         item['companyAdder'] = '未填写' if not response.css(
             'div.tCompany_main > div:nth-child(2) > div > p::text').get() else response.css(
